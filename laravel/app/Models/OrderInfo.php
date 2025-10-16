@@ -15,7 +15,7 @@ class OrderInfo extends Model
         'price'
     ];
 
-   public function order()
+    public function order()
     {
         return $this->belongsTo(Order::class);
     }

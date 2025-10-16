@@ -18,6 +18,7 @@ class TopCustomerController extends Controller
             $revenue = $orders->flatMap(fn($order) => $order->orderInfo)
                 ->sum(fn($line) => $line->quantity * $line->price);
             $orderCount = $orders->count();
+            
             return "{$email} €" . number_format($revenue, 2) . " {$orderCount} " . ($orderCount > 1 ? "orders" : "order");
         });
         //used IA there, because I didn't know how to manage with the "collection of collection problem"

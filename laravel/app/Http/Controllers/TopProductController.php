@@ -12,7 +12,7 @@ class TopProductController extends Controller
     $products = Product::with('orderInfo')->get();
     $products = $products->map(function ($product) {
         $product->revenue = $product->orderInfo->sum(function ($orderLine) {
-          return $orderLine->quantity * $orderLine->price;
+            return $orderLine->quantity * $orderLine->price;
             });
             return $product;
         });
