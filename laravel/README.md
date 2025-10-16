@@ -42,3 +42,6 @@ It will import the data into the database and log the errors
 `http://localhost:8001/report/topproducts/2` to get the top 2 products by revenue
 `http://localhost:8001/report/monthly-revenue/2025` to get monthly revenue summary for a given name
 `http://localhost:8001/report/top-customers/3` to get the top 3 customers
+
+-Test the import with PhpUnit
+`php artisan test --filter=ImportCsvTest`
