@@ -11,7 +11,8 @@ class OrderInfo extends Model
         'order_id',
         'product_id',
         'quantity',
-        'unit_price'
+        //stressed at the beggining and didn't harmonize with the migrations
+        'price'
     ];
 
    public function order()

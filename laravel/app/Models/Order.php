@@ -7,8 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'id',
-        'date',
+        //stressed at the beggining and didn't harmonize with the migrations
+        'order_id',
+        'order_date',
         'customer_email',
     ];
 
