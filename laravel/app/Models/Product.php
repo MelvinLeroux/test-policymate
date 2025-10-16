@@ -11,8 +11,8 @@ class Product extends Model
         'name',
         'price',
     ];
-
-        public function orderLines()
+    //harmonize with orderInfo
+        public function orderInfo()
     {
         return $this->hasMany(OrderInfo::class);
     }
