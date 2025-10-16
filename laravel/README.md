@@ -1,7 +1,8 @@
 # test-policymate
+
 This repository contains the technical test made by Melvin Leroux on October 16th, 2025, for PolicyMate.
 
-#@ setup
+## setup
 
 In order to launch the project properly follow theses steps.
 
@@ -35,3 +36,9 @@ DB_PASSWORD=your_db_password
 -Fill the database
 Get into the URL given from your terminal and add /import for example `http://localhost:8001/import`
 It will import the data into the database and log the errors
+
+-Get the results
+
+`http://localhost:8001/report/topproducts/2` to get the top 2 products by revenue
+`http://localhost:8001/report/monthly-revenue/2025` to get monthly revenue summary for a given name
+`http://localhost:8001/report/top-customers/3` to get the top 3 customers
