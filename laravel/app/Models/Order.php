@@ -13,7 +13,7 @@ class Order extends Model
         'customer_email',
     ];
 
-        public function orderLines()
+        public function orderInfo()
     {
         return $this->hasMany(OrderInfo::class);
     }
