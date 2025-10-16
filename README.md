@@ -1,47 +1,103 @@
 # test-policymate
 
-This repository contains the technical test made by Melvin Leroux on October 16th, 2025, for PolicyMate.
+This repository contains the technical test made by **Melvin Leroux** on **October 16th, 2025**, for **PolicyMate**.
 
-## setup
+## Setup
 
-In order to launch the project properly follow theses steps.
+Follow these steps to set up and run the project properly:
 
--Clone the repository
--Install dependencies with `composer install`
+1. **Clone the repository**
+   
+```bash
+git clone <repository-url>
+cd <repository-folder>
+````
 
--Configure the environment :
-`cp .env.example .env`
+2. **Install dependencies**
 
--Update the database settings in .env
+```bash
+composer install
+```
 
-`
+3. **Configure environment**
+
+Copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Set up your key APP_KEY
+```bash
+php artisan key:generate
+```
+
+Update the database settings in `.env`:
+
+```dotenv
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_DATABASE=your_database_name
 DB_USERNAME=your_db_user
 DB_PASSWORD=your_db_password
-`
+```
 
--Create the database in Mysql,phpMyadmin with the database name specified
+4. **Create the database**
 
--Run the migrations
+Create a database in MySQL or phpMyAdmin with the name specified in `.env`.
 
-`php artisan migrate`
+5. **Run migrations**
 
--Start the development server
+```bash
+php artisan migrate
+```
 
-`php artisan serve`
+6. **Prepare CSV file**
+   Create the CSV file `sales.csv` with the data inside the `storage/app` folder:
 
--Fill the database
-Get into the URL given from your terminal and add /import for example `http://localhost:8001/import`
-It will import the data into the database and log the errors
+```
+laravel/storage/app/sales.csv
+```
 
--Get the results
+7. **Start the development server**
 
-`http://localhost:8001/report/topproducts/2` to get the top 2 products by revenue
-`http://localhost:8001/report/monthly-revenue/2025` to get monthly revenue summary for a given name
-`http://localhost:8001/report/top-customers/3` to get the top 3 customers
+```bash
+php artisan serve
+```
 
--Test the import with PhpUnit
-`php artisan test --filter=ImportCsvTest`
+8. **Import data**
+
+Open your browser and navigate to the `/import` route to import data into the database and log errors:
+
+```
+http://localhost:8001/import
+```
+
+9. **Access reports**
+
+* **Top products by revenue (e.g., top 2 products)**
+
+```
+http://localhost:8001/report/topproducts/2
+```
+
+* **Monthly revenue summary for a given year (e.g., 2025)**
+
+```
+http://localhost:8001/report/monthly-revenue/2025
+```
+
+* **Top customers (e.g., top 3 customers)**
+
+```
+http://localhost:8001/report/top-customers/3
+```
+
+10. **Run tests**
+
+Test the CSV import using PHPUnit:
+
+```bash
+php artisan test --filter=ImportCsvTest
+```
